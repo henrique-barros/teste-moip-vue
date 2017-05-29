@@ -22,6 +22,8 @@ Os arquivos de referência estão no diretório [_layout](https://github.com/moi
 - O uso correto do git no versionamento do seu teste.
 - Se o seu código é legível e bem organizado.
 
+# Importante
+Queremos avaliar a progressão do seu trabalho, portanto não adicione arquivos prontos (ou todo o projeto) em um único commit. Trabalhe utilizando as boas práticas do Git e seja autoral no seu código.
 
 ## Instalação
 
