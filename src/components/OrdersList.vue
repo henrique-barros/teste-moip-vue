@@ -3,9 +3,9 @@
     <p>Lista de pedidos</p>
     <tbody>
       <tr>
-        <th>Item</th>
-        <th>Quantidade</th>
-        <th>Preço</th>
+        <th v-on:click="sortByColumn('name')">Item</th>
+        <th v-on:click="sortByColumn('amount')">Quantidade</th>
+        <th v-on:click="sortByColumn('price')">Preço</th>
       </tr>
       <order v-for="order in orders"
             v-bind:order="order"
@@ -27,25 +27,50 @@ export default {
       orders: [
         {
           name: "Banana",
-          amount: "1",
-          price: "800"
+          amount: 1,
+          price: 800
         },
         {
           name: "Heineken",
-          amount: "6",
-          price: "3600"
+          amount: 6,
+          price: 3600
         },
         {
           name: "Toalha de banho",
-          amount: "1",
-          price: "1500"
+          amount: 1,
+          price: 1500
         },
         {
           name: "Caixa de fósforos",
-          amount: "8",
-          price: "500"
+          amount: 8,
+          price: 500
         }
       ]
+    }
+  },
+  methods: {
+    sortByColumn: function(column) {
+      if (this.hasOrders()) {
+        if (this.isNumberColumn(column)) {
+          this.orders.sort(function(a, b) {
+            return a[column] - b[column]
+          })
+        }
+        else if (this.isStringColumn(column)) {
+          this.orders.sort(function(a, b) {
+            return a[column].localeCompare(b[column])
+          })
+        }
+      }
+    },
+    hasOrders: function() {
+      return this.orders && this.orders.length > 0;
+    },
+    isNumberColumn: function(column) {
+      return (typeof this.orders[0][column] === 'number')
+    },
+    isStringColumn: function(column) {
+      return (typeof this.orders[0][column] === 'string')
     }
   }
 }
