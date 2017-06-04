@@ -25,7 +25,7 @@ export default {
   margin-top: 60px;
 }
 body {
-  font-size: 32px;
+  font-size: 48px;
 }
 tr th, td {
   padding: 8px;

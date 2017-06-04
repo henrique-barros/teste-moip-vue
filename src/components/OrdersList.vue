@@ -3,9 +3,18 @@
     <p>Lista de pedidos</p>
     <tbody>
       <tr>
-        <th v-on:click="sortByColumn('name')">Item</th>
-        <th v-on:click="sortByColumn('amount')">Quantidade</th>
-        <th v-on:click="sortByColumn('price')">Preço</th>
+        <th v-on:click="sortByColumn('name')">
+          Item
+          <i v-if="sortBy=='name'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
+        </th>
+        <th v-on:click="sortByColumn('amount')">
+          Quantidade
+          <i v-if="sortBy=='amount'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
+        </th>
+        <th v-on:click="sortByColumn('price')">
+          Preço
+          <i v-if="sortBy=='price'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
+        </th>
       </tr>
       <order v-for="order in orders"
             v-bind:order="order"
@@ -24,6 +33,8 @@ export default {
   },
   data () {
     return {
+      sortCrescent: true,
+      sortBy: null,
       orders: [
         {
           name: "Banana",
@@ -50,18 +61,11 @@ export default {
   },
   methods: {
     sortByColumn: function(column) {
-      if (this.hasOrders()) {
-        if (this.isNumberColumn(column)) {
-          this.orders.sort(function(a, b) {
-            return a[column] - b[column]
-          })
-        }
-        else if (this.isStringColumn(column)) {
-          this.orders.sort(function(a, b) {
-            return a[column].localeCompare(b[column])
-          })
-        }
+      if (this.sortBy) {
+        this.sortCrescent = !this.sortCrescent
       }
+      this.sortBy = column;
+      this.sortOrders()
     },
     hasOrders: function() {
       return this.orders && this.orders.length > 0;
@@ -71,6 +75,28 @@ export default {
     },
     isStringColumn: function(column) {
       return (typeof this.orders[0][column] === 'string')
+    },
+    sortOrders: function() {
+      const column = this.sortBy
+      const orderSort = this.sortCrescent
+      if (this.hasOrders()) {
+        if (this.isNumberColumn(column)) {
+          this.orders.sort(function(a, b) {
+            if (orderSort) {
+              return a[column] - b[column]
+            }
+            return b[column] - a[column]
+          })
+        }
+        else if (this.isStringColumn(column)) {
+          this.orders.sort(function(a, b) {
+            if (orderSort) {
+              return a[column].localeCompare(b[column])
+            }
+            return b[column].localeCompare(a[column])
+          })
+        }
+      }
     }
   }
 }
@@ -84,6 +110,15 @@ p {
   color: blue;
 }
 th {
-  width:45%;
+  cursor: pointer;
+}
+th:nth-child(1), th:nth-child(3) {
+  width:30%;
+}
+th:nth-child(2) {
+  width:40%;
+}
+i {
+  margin-left: 4px;
 }
 </style>
