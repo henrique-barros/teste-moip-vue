@@ -1,8 +1,11 @@
 <template>
   <tr>
-    <td>{{order.name}}</td>
-    <td>{{order.amount}}</td>
-    <td>{{getFormattedPrice(order.price)}}</td>
+    <td>{{order.status}}</td>
+    <td>{{order.codigo}}</td>
+    <td>{{order.meio}}</td>
+    <td>{{getFormattedPrice(order.valor)}}</td>
+    <td>{{order.data_atualizado.toLocaleString()}}</td>
+    <td>{{order.cliente}}</td>
   </tr>
 </template>
 
