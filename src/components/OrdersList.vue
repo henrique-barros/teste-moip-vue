@@ -1,8 +1,16 @@
 <template>
   <div>
-    <order v-for="order in orders"
-          v-bind:order="order"
-          v-bind:key="order.id" />
+    <p>Lista de pedidos</p>
+    <tbody>
+      <tr>
+        <th>Item</th>
+        <th>Quantidade</th>
+        <th>Preço</th>
+      </tr>
+      <order v-for="order in orders"
+            v-bind:order="order"
+            v-bind:key="order.id" />
+    </tbody>
   </div>
 </template>
 
@@ -45,21 +53,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
+p {
+  width: 100%;
+  font-size: 2em;
+  color: blue;
 }
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
+th {
+  width:45%;
 }
 </style>

@@ -24,4 +24,18 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+body {
+  font-size: 32px;
+}
+tr th, td {
+  padding: 8px;
+  display: table-cell;
+  border: 1px solid #bbbbbb;
+}
+th {
+  font-size: 1em;
+}
+td {
+  font-size: 0.8em;
+}
 </style>
