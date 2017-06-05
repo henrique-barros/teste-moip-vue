@@ -46,6 +46,7 @@ h6 {
 }
 body {
   font-size: 16px;
+  background-color: lightblue;
 }
 grid-item {
   text-align: left;

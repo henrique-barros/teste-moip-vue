@@ -9,28 +9,28 @@
       </grid-item>
     </grid>
     <grid flat>
-      <grid-item size="1/12" v-on:click="sortByColumn('status')">
-        Status
+      <grid-item size="1/12">
+        <div v-on:click="sortByColumn('status')">Status</div>
         <i v-if="sortBy=='status'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
       </grid-item>
       <grid-item size="3/12" v-on:click="sortByColumn('codigo')">
-        Codigo
+        <div v-on:click="sortByColumn('codigo')">Codigo</div>
         <i v-if="sortBy=='codigo'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
       </grid-item>
       <grid-item size="1/12" v-on:click="sortByColumn('meio')">
-        Meio
+        <div v-on:click="sortByColumn('meio')">Meio</div>
         <i v-if="sortBy=='meio'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
       </grid-item>
       <grid-item size="1/12" v-on:click="sortByColumn('valor')">
-        R$
+        <div v-on:click="sortByColumn('valor')">R$</div>
         <i v-if="sortBy=='valor'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
       </grid-item>
       <grid-item size="3/12" v-on:click="sortByColumn('data_atualizado')">
-        Atualizado
+        <div v-on:click="sortByColumn('data_atualizado')">Atualizado</div>
         <i v-if="sortBy=='data_atualizado'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
       </grid-item>
       <grid-item size="3/12" v-on:click="sortByColumn('cliente')">
-        Cliente
+        <div v-on:click="sortByColumn('cliente')">Cliente</div>
         <i v-if="sortBy=='cliente'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
       </grid-item>
     </grid>
@@ -102,6 +102,7 @@ export default {
   },
   methods: {
     sortByColumn: function(column) {
+      console.log(column);
       if (this.sortBy) {
         this.sortCrescent = !this.sortCrescent
       }
