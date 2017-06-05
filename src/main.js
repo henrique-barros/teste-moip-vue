@@ -2,8 +2,10 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+import VueFractionGrid from 'vue-fraction-grid'
 
 Vue.config.productionTip = false
+Vue.use(VueFractionGrid)
 
 /* eslint-disable no-new */
 new Vue({

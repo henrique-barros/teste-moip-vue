@@ -1,38 +1,43 @@
 <template>
-  <div>
-    <p>Lista de pedidos</p>
-    <tbody>
-      <tr>
-        <th v-on:click="sortByColumn('status')">
-          Status
-          <i v-if="sortBy=='status'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
-        </th>
-        <th v-on:click="sortByColumn('codigo')">
-          Codigo
-          <i v-if="sortBy=='codigo'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
-        </th>
-        <th v-on:click="sortByColumn('meio')">
-          Meio
-          <i v-if="sortBy=='meio'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
-        </th>
-        <th v-on:click="sortByColumn('valor')">
-          R$
-          <i v-if="sortBy=='valor'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
-        </th>
-        <th v-on:click="sortByColumn('data_atualizado')">
-          Atualizado
-          <i v-if="sortBy=='data_atualizado'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
-        </th>
-        <th v-on:click="sortByColumn('cliente')">
-          Cliente
-          <i v-if="sortBy=='cliente'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
-        </th>
-      </tr>
-      <order v-for="order in orders"
-            v-bind:order="order"
-            v-bind:key="order.id" />
-    </tbody>
-  </div>
+  <container class="app-container">
+    <grid :rwd="{compact: 'stack'}">
+      <grid-item size="1/2" :rwd="{compact: '0/1'}">
+        <p>Lista de pedidos</p>
+      </grid-item>
+      <grid-item size="1/2" :rwd="{compact: '1/1'}">
+        <p>teste</p>
+      </grid-item>
+    </grid>
+    <grid flat>
+      <grid-item size="1/12" v-on:click="sortByColumn('status')">
+        Status
+        <i v-if="sortBy=='status'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
+      </grid-item>
+      <grid-item size="3/12" v-on:click="sortByColumn('codigo')">
+        Codigo
+        <i v-if="sortBy=='codigo'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
+      </grid-item>
+      <grid-item size="1/12" v-on:click="sortByColumn('meio')">
+        Meio
+        <i v-if="sortBy=='meio'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
+      </grid-item>
+      <grid-item size="1/12" v-on:click="sortByColumn('valor')">
+        R$
+        <i v-if="sortBy=='valor'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
+      </grid-item>
+      <grid-item size="3/12" v-on:click="sortByColumn('data_atualizado')">
+        Atualizado
+        <i v-if="sortBy=='data_atualizado'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
+      </grid-item>
+      <grid-item size="3/12" v-on:click="sortByColumn('cliente')">
+        Cliente
+        <i v-if="sortBy=='cliente'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
+      </grid-item>
+    </grid>
+    <order v-for="order in orders"
+          v-bind:order="order"
+          v-bind:key="order.id" />
+  </container>
 </template>
 
 <script>
@@ -178,5 +183,9 @@ th:nth-child(2) {
 }
 i {
   margin-left: 4px;
+}
+
+.app-container {
+  text-align: left;
 }
 </style>

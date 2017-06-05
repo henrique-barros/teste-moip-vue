@@ -45,18 +45,10 @@ h6 {
   text-transform: uppercase;
 }
 body {
-  font-size: 48px;
+  font-size: 16px;
 }
-tr th, td {
-  padding: 8px;
-  display: table-cell;
-  border: 1px solid #bbbbbb;
-}
-th {
-  font-size: 1em;
-}
-td {
-  font-size: 0.8em;
+grid-item {
+  text-align: left;
 }
 
 @media (max-width: 480px) {
