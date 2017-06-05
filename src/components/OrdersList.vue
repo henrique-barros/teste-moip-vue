@@ -8,30 +8,30 @@
         <p>teste</p>
       </grid-item>
     </grid>
-    <grid flat>
+    <grid flat class="orders-grid-header">
       <grid-item size="1/12">
-        <div v-on:click="sortByColumn('status')">Status</div>
+        <span v-on:click="sortByColumn('status')">Status</span>
         <i v-if="sortBy=='status'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
       </grid-item>
-      <grid-item size="3/12" v-on:click="sortByColumn('codigo')">
-        <div v-on:click="sortByColumn('codigo')">Codigo</div>
-        <i v-if="sortBy=='codigo'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
+      <grid-item size="2/12" v-on:click="sortByColumn('codigo')">
+        <span v-on:click="sortByColumn('id')">Codigo</span>
+        <i v-if="sortBy=='id'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
       </grid-item>
-      <grid-item size="1/12" v-on:click="sortByColumn('meio')">
-        <div v-on:click="sortByColumn('meio')">Meio</div>
-        <i v-if="sortBy=='meio'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
+      <grid-item size="2/12" v-on:click="sortByColumn('payments')">
+        <span v-on:click="sortByColumn('payments')">Meio</span>
+        <i v-if="sortBy=='payments'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
       </grid-item>
       <grid-item size="1/12" v-on:click="sortByColumn('valor')">
-        <div v-on:click="sortByColumn('valor')">R$</div>
-        <i v-if="sortBy=='valor'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
+        <span v-on:click="sortByColumn('amount')">R$</span>
+        <i v-if="sortBy=='amount'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
       </grid-item>
-      <grid-item size="3/12" v-on:click="sortByColumn('data_atualizado')">
-        <div v-on:click="sortByColumn('data_atualizado')">Atualizado</div>
-        <i v-if="sortBy=='data_atualizado'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
+      <grid-item size="3/12" v-on:click="sortByColumn('date')">
+        <span v-on:click="sortByColumn('date')">Atualizado</span>
+        <i v-if="sortBy=='date'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
       </grid-item>
-      <grid-item size="3/12" v-on:click="sortByColumn('cliente')">
-        <div v-on:click="sortByColumn('cliente')">Cliente</div>
-        <i v-if="sortBy=='cliente'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
+      <grid-item size="3/12" v-on:click="sortByColumn('customer')">
+        <span v-on:click="sortByColumn('customer')">Cliente</span>
+        <i v-if="sortBy=='customer'" class="material-icons">{{sortCrescent ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</i>
       </grid-item>
     </grid>
     <order v-for="order in orders"
@@ -54,48 +54,166 @@ export default {
       sortBy: null,
       orders: [
         {
-          status: "ok",
-          codigo: "ABCD320391039",
-          meio: "cartao",
-          data_atualizado: new Date("October 13, 2014 11:13:00"),
-          cliente: {
-            nome: "Marcos",
-            email: "marcos@uol.com"
+          "id": "380561",
+          "ownId": "sandbox_v2_1430950122",
+          "externalId": "ORD-U052MFZ4M414",
+          "status": "WAITING",
+          "blocked": false,
+          "amount": {
+            "total": 4000,
+            "addition": 0,
+            "fees": 335,
+            "deduction": 0,
+            "otherReceivers": 0,
+            "currency": "BRL"
           },
-          valor: 800
+          "receivers": [
+            {
+              "type": "PRIMARY",
+              "moipAccount": {
+                "id": "MPA-CULBBYHD11"
+              }
+            }
+          ],
+          "customer": {
+            "fullname": "jose silva",
+            "email": "sandbox_v2_1430950122@email.com"
+          },
+          "items": [
+            {
+              "product": null
+            }
+          ],
+          "payments": [
+            {
+              "installmentCount": 1,
+              "fundingInstrument": {
+                "method": "CREDIT_CARD",
+                "institution": "VISA"
+              }
+            }
+          ],
+          "events": [
+            {
+              "type": "PAYMENT.AUTHORIZED",
+              "createdAt": "2015-05-06T19:09:06Z"
+            }
+          ],
+          "_links": {
+            "self": {
+              "href": "https://sandbox.moip.com.br/v2/orders/ORD-U052MFZ4M414"
+            }
+          },
+          "createdAt": "2015-05-06T19:08:43Z",
+          "updatedAt": "2015-05-06T19:08:48Z"
         },
         {
-          status: "ok",
-          codigo: "EBCD320391030",
-          meio: "dinheiro",
-          data_atualizado: new Date("October 10, 2014 11:13:00"),
-          cliente: {
-            nome: "Henrique",
-            email: "henrique@uol.com"
+          "id": "380560",
+          "ownId": "sandbox_v2_1430950121",
+          "externalId": "ORD-8MFXXQTTPEJ4",
+          "status": "PAID",
+          "blocked": false,
+          "amount": {
+            "total": 30050,
+            "addition": 0,
+            "fees": 335,
+            "deduction": 0,
+            "otherReceivers": 0,
+            "currency": "BRL"
           },
-          valor: 165
+          "receivers": [
+            {
+              "type": "PRIMARY",
+              "moipAccount": {
+                "id": "MPA-CULBBYHD11"
+              }
+            }
+          ],
+          "customer": {
+            "fullname": "jose silva",
+            "email": "sandbox_v2_1430950121@email.com"
+          },
+          "items": [
+            {
+              "product": null
+            }
+          ],
+          "payments": [
+            {
+              "installmentCount": 1,
+              "fundingInstrument": {
+                "method": "MONEY",
+                "institution": "VISA"
+              }
+            }
+          ],
+          "events": [
+            {
+              "type": "PAYMENT.AUTHORIZED",
+              "createdAt": "2015-05-06T19:09:06Z"
+            }
+          ],
+          "_links": {
+            "self": {
+              "href": "https://sandbox.moip.com.br/v2/orders/ORD-8MFXXQTTPEJ4"
+            }
+          },
+          "createdAt": "2015-05-06T19:08:41Z",
+          "updatedAt": "2015-05-06T19:08:48Z"
         },
         {
-          status: "cancelado",
-          codigo: "CBCD320391031",
-          meio: "cartao",
-          data_atualizado: new Date("October 15, 2014 11:13:00"),
-          cliente: {
-            nome: "Luciana",
-            email: "lu@uol.com"
+          "id": "380456",
+          "ownId": "sandbox_v2_1430942777",
+          "externalId": "ORD-3XCFS4BTBO38",
+          "status": "PAID",
+          "blocked": false,
+          "amount": {
+            "total": 4000,
+            "addition": 0,
+            "fees": 335,
+            "deduction": 0,
+            "otherReceivers": 0,
+            "currency": "BRL"
           },
-          valor: 3284
-        },
-        {
-          status: "ok",
-          codigo: "DCCD320391039",
-          meio: "cartao",
-          data_atualizado: new Date("October 9, 2014 11:13:00"),
-          cliente: {
-            nome: "Maria Luiza",
-            email: "maria@uol.com"
+          "receivers": [
+            {
+              "type": "PRIMARY",
+              "moipAccount": {
+                "id": "MPA-CULBBYHD11"
+              }
+            }
+          ],
+          "customer": {
+            "fullname": "jose silva",
+            "email": "sandbox_v2_1430942777@email.com"
           },
-          valor: 9323
+          "items": [
+            {
+              "product": null
+            }
+          ],
+          "payments": [
+            {
+              "installmentCount": 1,
+              "fundingInstrument": {
+                "method": "CREDIT_CARD",
+                "institution": "VISA"
+              }
+            }
+          ],
+          "events": [
+            {
+              "type": "PAYMENT.AUTHORIZED",
+              "createdAt": "2015-05-06T17:06:53Z"
+            }
+          ],
+          "_links": {
+            "self": {
+              "href": "https://sandbox.moip.com.br/v2/orders/ORD-3XCFS4BTBO38"
+            }
+          },
+          "createdAt": "2015-05-06T17:06:23Z",
+          "updatedAt": "2015-05-06T17:06:42Z"
         }
       ]
     }
@@ -144,20 +262,36 @@ export default {
             return b[column].localeCompare(a[column])
           })
         }
-        else if (this.isDateColumn(column)) {
+        else if (column === 'date') {
           this.orders.sort(function(a, b) {
             if (orderSort) {
-              return a[column] - b[column];
+              return new Date(a.events[a.events.length - 1].createdAt) - new Date(b.events[b.events.length - 1].createdAt) ;
             }
-            return b[column] - a[column];
+            return new Date(b.events[b.events.length - 1].createdAt) - new Date(a.events[a.events.length - 1].createdAt) ;
           })
         }
-        else if (this.isClienteColumn(column)) {
+        else if (column === 'customer') {
           this.orders.sort(function(a, b) {
             if (orderSort) {
-              return a[column]['nome'].localeCompare(b[column]['nome']);
+              return a[column]['fullname'].localeCompare(b[column]['fullname']);
             }
-            return b[column]['nome'].localeCompare(a[column]['nome']);
+            return b[column]['fullname'].localeCompare(a[column]['fullname']);
+          })
+        }
+        else if (column === 'amount') {
+          this.orders.sort(function(a, b) {
+            if (orderSort) {
+              return (a[column].total - a[column].fees) - (b[column].total - b[column].fees)
+            }
+            return (b[column].total - b[column].fees) - (a[column].total - a[column].fees)
+          })
+        }
+        else if (column === 'payments') {
+          this.orders.sort(function(a, b) {
+            if (orderSort) {
+              return a[column][a[column].length -1]['fundingInstrument'].method.localeCompare(b[column][b[column].length -1]['fundingInstrument'].method);
+            }
+            return b[column][b[column].length -1]['fundingInstrument'].method.localeCompare(a[column][a[column].length -1]['fundingInstrument'].method);
           })
         }
       }
@@ -188,5 +322,21 @@ i {
 
 .app-container {
   text-align: left;
+}
+
+
+.orders-grid-header > * {
+  margin: auto;
+}
+.orders-grid-header {
+  margin-bottom: 18px;
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+}
+
+span {
+  height: 24px;
+  color: white;
 }
 </style>

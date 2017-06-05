@@ -46,7 +46,7 @@ h6 {
 }
 body {
   font-size: 16px;
-  background-color: lightblue;
+  background-color: teal;
 }
 grid-item {
   text-align: left;
